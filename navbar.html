@@ -1,0 +1,35 @@
+<nav class="navbar flex justify-center items-center w-full py-4">
+    <a href="index.html">
+        <img src="assets/images/Recurso 61.svg" alt="My Cocktail Logo" class="h-16 mx-auto sm:mx-0">
+    </a>
+</nav>
+
+<script>
+    function toggleMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        const burgerMenu = document.querySelector('.burger-menu');
+
+        navLinks.classList.toggle('active');
+        burgerMenu.classList.toggle('active');
+    }
+
+    function closeMenu() {
+        const navLinks = document.querySelector('.nav-links');
+        const burgerMenu = document.querySelector('.burger-menu');
+
+        navLinks.classList.remove('active');
+        burgerMenu.classList.remove('active');
+    }
+
+    // Close menu if clicked outside
+    document.addEventListener('click', function (event) {
+        const navLinks = document.querySelector('.nav-links');
+        const burgerMenu = document.querySelector('.burger-menu');
+        const navbar = document.querySelector('.navbar');
+
+        if (!navbar.contains(event.target) && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            burgerMenu.classList.remove('active');
+        }
+    });
+</script>

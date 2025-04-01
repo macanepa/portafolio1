@@ -6,420 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>My Cocktail</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script src="javascript/loadNavbar.js"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600;700&display=swap"
         rel="stylesheet">
-    <style>
-        :root {
-            /* Updated color palette based on the provided image */
-            --verde-botella: #112524;
-            --verde-cristal: #224038;
-            --verde-claro: #7FB198;
-            --celeste: #73949E;
-            --gris-nube: #EAE9E3;
-            --rojo-incendio: #461111;
-            --rosado-atadecer: #F3A28D;
-            --amarillo-sol: #F2C127;
-            --amarillo-sol-hover: #b3932d;
 
-            /* Mapping to functional variables */
-            --primary-black: var(--verde-botella);
-            --secondary-black: var(--verde-cristal);
-            --accent-red: var(--rojo-incendio);
-            --soft-white: var(--gris-nube);
-        }
+    <link rel="stylesheet" href="/assets/css/style.css">
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            /* font-family: 'Open Sans', sans-serif; */
-            background-color: var(--soft-white);
-            color: var(--primary-black);
-            line-height: 1.6;
-        }
-
-        .navbar {
-            background-color: var(--primary-black);
-            padding: 1rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .navbar-brand {
-            /* font-family: 'Bebas Neue', cursive; */
-            color: white;
-            font-size: 2rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .nav-links a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--accent-red);
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-red);
-        }
-
-        .hero {
-            position: relative;
-            overflow: hidden;
-            color: white;
-            text-align: center;
-            padding: 10rem 5% 5rem;
-        }
-
-        .hero-video {
-            position: absolute;
-            top: 0px;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            z-index: -1;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            background: rgba(17, 37, 36, 0.7);
-            /* Verde botella with transparency */
-            padding: 2rem;
-            display: inline-block;
-            border-radius: 8px;
-            backdrop-filter: blur(20px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-
-        .hero-title {
-            /* font-family: 'Bebas Neue', cursive; */
-            font-size: 4rem;
-            margin-bottom: 1rem;
-            letter-spacing: 1px;
-        }
-
-        .hero-subtitle {
-            max-width: 700px;
-            margin: 0 auto 2rem;
-            font-size: 1.2rem;
-        }
-
-        .hero-cta {
-            display: inline-block;
-            background-color: var(--amarillo-sol);
-            color: var(--verde-botella);
-            padding: 0.8rem 2rem;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            transition: background-color 0.3s ease;
-        }
-
-        .hero-cta:hover {
-            background-color: var(--amarillo-sol-hover);
-            /* Darker shade of rojo-incendio */
-        }
-
-        .products-section {
-            padding: 4rem 5%;
-            background-color: var(--soft-white);
-        }
-
-        .section-title {
-            /* font-family: 'Bebas Neue', cursive; */
-            text-align: center;
-            font-size: 3rem;
-            margin-bottom: 3rem;
-            letter-spacing: 1px;
-        }
-
-        #carouselContent {
-            display: flex;
-            overflow-x: auto;
-            /* scroll-snap-type: x mandatory; */
-            -webkit-overflow-scrolling: touch;
-            padding: 1rem 0;
-        }
-
-        #carouselContent::-webkit-scrollbar {
-            display: none;
-        }
-
-        .product-card-wrapper {
-            flex: 0 0 auto;
-            width: 300px;
-            /* scroll-snap-align: start; */
-            margin-right: 1rem;
-        }
-
-        .product-card {
-            background-color: white;
-            border-radius: 15px;
-            overflow: hidden;
-            /* box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); */
-            transition: transform 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: scale(1.02);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 300px;
-            object-fit: cover;
-        }
-
-        .product-details {
-            padding: 1.5rem;
-            text-align: center;
-        }
-
-        .product-name {
-            font-weight: 700;
-            font-size: 1.2rem;
-            margin-bottom: 0.5rem;
-            color: var(--verde-cristal);
-        }
-
-        .product-description {
-            color: #666;
-            margin-bottom: 1rem;
-            height: 90px;
-        }
-
-        .product-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .product-price {
-            color: var(--accent-red);
-            font-weight: 700;
-            font-size: 1.2rem;
-        }
-
-        .buy-button {
-            background-color: var(--primary-black);
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-
-        .buy-button:hover {
-            background-color: var(--accent-red);
-        }
-
-        .footer {
-            background-color: var(--primary-black);
-            color: white;
-            padding: 4rem 5%;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .footer-section h4 {
-            /* font-family: 'Bebas Neue', cursive; */
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            color: var(--verde-claro);
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--rosado-atadecer);
-        }
-
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            margin-top: 2rem;
-        }
-
-        /* Burger Menu Styles */
-        .burger-menu {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-            z-index: 200;
-        }
-
-        .burger-line {
-            width: 25px;
-            height: 3px;
-            background-color: white;
-            margin: 3px 0;
-            transition: 0.4s;
-        }
-
-        /* Mobile Responsiveness */
-        @media (max-width: 768px) {
-            .navbar {
-                padding: 1rem;
-                justify-content: space-between;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 0;
-                left: -100%;
-                width: 100%;
-                height: 100vh;
-                background-color: var(--primary-black);
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                transition: 0.3s;
-                gap: 2rem;
-                z-index: 150;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .burger-menu {
-                display: flex;
-            }
-
-            .hero-title {
-                font-size: 2.5rem;
-            }
-
-            #carouselContent {
-                padding-bottom: 1rem;
-            }
-
-            .product-card-wrapper {
-                margin-right: 0.5rem;
-            }
-
-            .footer-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .burger-menu.active .burger-line:nth-child(1) {
-                transform: rotate(-45deg) translate(-5px, 6px);
-            }
-
-            .burger-menu.active .burger-line:nth-child(2) {
-                opacity: 0;
-            }
-
-            .burger-menu.active .burger-line:nth-child(3) {
-                transform: rotate(45deg) translate(-5px, -6px);
-            }
-        }
-    </style>
-
-
-    <style>
-        @font-face {
-            font-family: 'Din-Din';
-            src: url('assets/fonts/DIN/D-DIN.otf') format('opentype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Din-Din';
-            src: url('assets/fonts/DIN/D-DIN-Bold.otf') format('opentype');
-            font-weight: bold;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Lato';
-            src: url('assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
-            font-weight: normal;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Lato';
-            src: url('assets/fonts/Lato/Lato-Bold.ttf') format('truetype');
-            font-weight: bold;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        @font-face {
-            font-family: 'Lato';
-            src: url('assets/fonts/Lato/Lato-Light.ttf') format('truetype');
-            font-weight: 300;
-            font-style: normal;
-            font-display: swap;
-        }
-
-        /* Apply the fonts to specific elements */
-        body {
-            font-family: 'Din-Din', sans-serif;
-        }
-
-        p {
-            font-family: 'Lato', sans-serif;
-        }
-    </style>
 </head>
 
 <body>
     <!-- Navigation Bar -->
-    <nav class="navbar">
+    <!-- <nav class="navbar">
         <img src="assets/images/Recurso 61.svg" alt="My Cocktail Logo" class="h-16">
         <div class="burger-menu" onclick="toggleMenu()">
             <div class="burger-line"></div>
@@ -427,12 +25,13 @@
             <div class="burger-line"></div>
         </div>
         <div class="nav-links">
-            <a href="#home" onclick="closeMenu()">Inicio</a>
             <a href="#productos" onclick="closeMenu()">Productos</a>
-            <a href="#nosotros" onclick="closeMenu()">Nosotros</a>
-            <a href="#contacto" onclick="closeMenu()">Contacto</a>
         </div>
-    </nav>
+    </nav> -->
+
+    <div id="navbar-container"></div>
+
+
 
     <div class="hero">
         <video autoplay muted loop playsinline class="hero-video">
@@ -442,17 +41,15 @@
         <div class="hero-content">
             <h1 class="hero-title"><span style="color: var(--amarillo-sol);">Experiencia</span> Mística en Lata</h1>
             <p class="hero-subtitle">
-                Nuestros innovadores cócteles en lata ayudan a personas jóvenes, atrevidas y arriesgadas que buscan
-                vivir experiencias únicas y memorables. y disfrutar eventos sociales o reuniones con amigos
-                Ahorra tiempo, reduce gastos y vive al máximo la vida social, sin preocuparte por la preparación ni las
-                grandes cantidades.
+                Nuestros innovadores cócteles en lata transforman cualquier evento en una experiencia memorable. Ahorra
+                tiempo y disfruta sin complicaciones.
             </p>
             <a href="#productos" class="hero-cta">Ver Productos</a>
         </div>
     </div>
 
     <!-- Products Section -->
-    <section class="products-section border-t-8 border-red-500" style="border-color: var(--rojo-incendio)"
+    <section class="products-section border-t-8 border-red-500" style="border-color: var(--verde-cristal)"
         id="productos">
         <h2 class="section-title"><span style="color: var(--verde-botella);">Nuestros <strong
                     styl>Cocktails</strong></span>
@@ -461,53 +58,53 @@
         <div id="carouselContent" class="flex justify-start sm:justify-center">
 
             <div class="product-card-wrapper">
-                <div class="product-card shadow">
-                    <img src="https://placehold.co/300x400" alt="Summer Wine" class="product-image">
+                <div class="product-card">
+                    <img src="assets/images/bg-summer.jpeg" alt="Summer Wine" class="product-image">
                     <div class="product-details">
                         <h3 class="product-name">Summer Wine</h3>
                         <p class="product-description">Vino Tinto Carmenere – Merlot, Naranjas Deshidratada, Ramas de
                             Canela, Agave y Agua Gasificada</p>
-                        <div class="product-footer">
-                            <!-- <button class="buy-button">Conoce más</button> -->
+                        <div class="product-footer justify-center">
+                            <a href="/product1.html" class="buy-a">Conoce más</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="product-card-wrapper">
-                <div class="product-card shadow">
-                    <img src="https://placehold.co/300x400" alt="Sparkling Rose" class="product-image">
+                <div class="product-card">
+                    <img src="assets/images/bg-rosee.jpeg" alt="Sparkling Rose" class="product-image">
                     <div class="product-details">
                         <h3 class="product-name">Sparkling Rose</h3>
                         <p class="product-description">Uva Chardonnay, Pinot Noir y Syrah, con toques de frutos rojos y
                             pétalos de rosas</p>
-                        <div class="product-footer">
-                            <!-- <button class="buy-button">Conoce más</button> -->
+                        <div class="product-footer justify-center">
+                            <a href="/product2.html" class="buy-a">Conoce más</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="product-card-wrapper">
-                <div class="product-card shadow">
-                    <img src="https://placehold.co/300x400" alt="Sparkling Brut" class="product-image">
+                <div class="product-card">
+                    <img src="assets/images/bg-water.jpeg" alt="Sparkling Brut" class="product-image">
                     <div class="product-details">
                         <h3 class="product-name">Sparkling Brut</h3>
                         <p class="product-description">Uva Chardonnay y Sauvignon Blanc, con toques de
                             sutiles de frutos como Frutilla, Manzana y Pera</p>
-                        <div class="product-footer">
-                            <!-- <button class="buy-button">Conoce más</button> -->
+                        <div class="product-footer justify-center">
+                            <a href="/product3.html" class="buy-a">Conoce más</a>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="product-card-wrapper">
-                <div class="product-card shadow">
-                    <img src="https://placehold.co/300x400" alt="Vodka Lima Limón Bitters" class="product-image">
+                <div class="product-card">
+                    <img src="assets/images/bg-vodka.jpeg" alt="Vodka Lima Limón Bitters" class="product-image">
                     <div class="product-details">
                         <h3 class="product-name">Vodka Lima Limón Bitters</h3>
                         <p class="product-description">Vodka, con toques sutiles de Limón y Limón de Pica, endulzado con
                             Agave y Agua Gasificada</p>
-                        <div class="product-footer">
-                            <!-- <button class="buy-button">Conoce más</button> -->
+                        <div class="product-footer justify-center">
+                            <a href="/product4.html" class="buy-a">Conoce más</a>
                         </div>
                     </div>
                 </div>
@@ -541,37 +138,6 @@
             © 2025 My Cocktail. Todos los derechos reservados.
         </div>
     </footer>
-
-
-    <script>
-        function toggleMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            const burgerMenu = document.querySelector('.burger-menu');
-
-            navLinks.classList.toggle('active');
-            burgerMenu.classList.toggle('active');
-        }
-
-        function closeMenu() {
-            const navLinks = document.querySelector('.nav-links');
-            const burgerMenu = document.querySelector('.burger-menu');
-
-            navLinks.classList.remove('active');
-            burgerMenu.classList.remove('active');
-        }
-
-        // Close menu if clicked outside
-        document.addEventListener('click', function (event) {
-            const navLinks = document.querySelector('.nav-links');
-            const burgerMenu = document.querySelector('.burger-menu');
-            const navbar = document.querySelector('.navbar');
-
-            if (!navbar.contains(event.target) && navLinks.classList.contains('active')) {
-                navLinks.classList.remove('active');
-                burgerMenu.classList.remove('active');
-            }
-        });
-    </script>
 </body>
 
 </html>
