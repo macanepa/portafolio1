@@ -4,17 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Cocktails</title>
+    <title>My Cocktail</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Open+Sans:wght@400;600;700&display=swap"
         rel="stylesheet">
     <style>
         :root {
-            --primary-black: #1a1a1a;
-            --secondary-black: #2c2c2c;
-            --accent-red: #ff2d2d;
-            --soft-white: #f4f4f4;
+            /* Updated color palette based on the provided image */
+            --verde-botella: #112524;
+            --verde-cristal: #224038;
+            --verde-claro: #7FB198;
+            --celeste: #73949E;
+            --gris-nube: #EAE9E3;
+            --rojo-incendio: #461111;
+            --rosado-atadecer: #F3A28D;
+            --amarillo-sol: #F2C127;
+            --amarillo-sol-hover: #b3932d;
+
+            /* Mapping to functional variables */
+            --primary-black: var(--verde-botella);
+            --secondary-black: var(--verde-cristal);
+            --accent-red: var(--rojo-incendio);
+            --soft-white: var(--gris-nube);
         }
 
         * {
@@ -24,7 +36,7 @@
         }
 
         body {
-            font-family: 'Open Sans', sans-serif;
+            /* font-family: 'Open Sans', sans-serif; */
             background-color: var(--soft-white);
             color: var(--primary-black);
             line-height: 1.6;
@@ -44,7 +56,7 @@
         }
 
         .navbar-brand {
-            font-family: 'Bebas Neue', cursive;
+            /* font-family: 'Bebas Neue', cursive; */
             color: white;
             font-size: 2rem;
             letter-spacing: 2px;
@@ -104,7 +116,8 @@
         .hero-content {
             position: relative;
             z-index: 1;
-            background: rgba(0, 0, 0, 0.6);
+            background: rgba(17, 37, 36, 0.7);
+            /* Verde botella with transparency */
             padding: 2rem;
             display: inline-block;
             border-radius: 8px;
@@ -113,10 +126,10 @@
         }
 
         .hero-title {
-            font-family: 'Bebas Neue', cursive;
+            /* font-family: 'Bebas Neue', cursive; */
             font-size: 4rem;
             margin-bottom: 1rem;
-            letter-spacing: 3px;
+            letter-spacing: 1px;
         }
 
         .hero-subtitle {
@@ -127,8 +140,8 @@
 
         .hero-cta {
             display: inline-block;
-            background-color: var(--accent-red);
-            color: white;
+            background-color: var(--amarillo-sol);
+            color: var(--verde-botella);
             padding: 0.8rem 2rem;
             text-decoration: none;
             border-radius: 50px;
@@ -137,7 +150,8 @@
         }
 
         .hero-cta:hover {
-            background-color: #ff4d4d;
+            background-color: var(--amarillo-sol-hover);
+            /* Darker shade of rojo-incendio */
         }
 
         .products-section {
@@ -146,11 +160,11 @@
         }
 
         .section-title {
-            font-family: 'Bebas Neue', cursive;
+            /* font-family: 'Bebas Neue', cursive; */
             text-align: center;
             font-size: 3rem;
             margin-bottom: 3rem;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
         }
 
         #carouselContent {
@@ -197,14 +211,15 @@
 
         .product-name {
             font-weight: 700;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             margin-bottom: 0.5rem;
+            color: var(--verde-cristal);
         }
 
         .product-description {
             color: #666;
             margin-bottom: 1rem;
-            height: 50px;
+            height: 90px;
         }
 
         .product-footer {
@@ -246,7 +261,7 @@
         }
 
         .footer-section h4 {
-            font-family: 'Bebas Neue', cursive;
+            /* font-family: 'Bebas Neue', cursive; */
             margin-bottom: 1rem;
             letter-spacing: 2px;
         }
@@ -257,13 +272,13 @@
         }
 
         .social-links a {
-            color: white;
+            color: var(--verde-claro);
             text-decoration: none;
             transition: color 0.3s ease;
         }
 
         .social-links a:hover {
-            color: var(--accent-red);
+            color: var(--rosado-atadecer);
         }
 
         .footer-bottom {
@@ -348,12 +363,64 @@
             }
         }
     </style>
+
+
+    <style>
+        @font-face {
+            font-family: 'Din-Din';
+            src: url('assets/fonts/DIN/D-DIN.otf') format('opentype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Din-Din';
+            src: url('assets/fonts/DIN/D-DIN-Bold.otf') format('opentype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Lato';
+            src: url('assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Lato';
+            src: url('assets/fonts/Lato/Lato-Bold.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        @font-face {
+            font-family: 'Lato';
+            src: url('assets/fonts/Lato/Lato-Light.ttf') format('truetype');
+            font-weight: 300;
+            font-style: normal;
+            font-display: swap;
+        }
+
+        /* Apply the fonts to specific elements */
+        body {
+            font-family: 'Din-Din', sans-serif;
+        }
+
+        p {
+            font-family: 'Lato', sans-serif;
+        }
+    </style>
 </head>
 
 <body>
     <!-- Navigation Bar -->
     <nav class="navbar">
-        <div class="navbar-brand">My Cocktails</div>
+        <img src="assets/images/Recurso 61.svg" alt="My Cocktail Logo" class="h-16">
         <div class="burger-menu" onclick="toggleMenu()">
             <div class="burger-line"></div>
             <div class="burger-line"></div>
@@ -364,7 +431,6 @@
             <a href="#productos" onclick="closeMenu()">Productos</a>
             <a href="#nosotros" onclick="closeMenu()">Nosotros</a>
             <a href="#contacto" onclick="closeMenu()">Contacto</a>
-            <!-- <a href="#cart" onclick="closeMenu()">🛒</a> -->
         </div>
     </nav>
 
@@ -374,152 +440,105 @@
             Your browser does not support the video tag.
         </video>
         <div class="hero-content">
-            <h1 class="hero-title">Cocktails <span style="color: var(--accent-red);">Perfectos</span> en Cada Sorbo</h1>
-            <p class="hero-subtitle">Experiencia de bar premium en la comodidad de tu hogar. Cocktails preparados con
-                los
-                mejores ingredientes, listos para servir.</p>
+            <h1 class="hero-title"><span style="color: var(--amarillo-sol);">Experiencia</span> Mística en Lata</h1>
+            <p class="hero-subtitle">
+                Nuestros innovadores cócteles en lata ayudan a personas jóvenes, atrevidas y arriesgadas que buscan
+                vivir experiencias únicas y memorables. y disfrutar eventos sociales o reuniones con amigos
+                Ahorra tiempo, reduce gastos y vive al máximo la vida social, sin preocuparte por la preparación ni las
+                grandes cantidades.
+            </p>
             <a href="#productos" class="hero-cta">Ver Productos</a>
         </div>
     </div>
 
     <!-- Products Section -->
-    <section class="products-section border-t-8 border-red-500" id="productos">
-        <h2 class="section-title">Nuestros <span style="color: var(--accent-red);">Cocktails</span></h2>
+    <section class="products-section border-t-8 border-red-500" style="border-color: var(--rojo-incendio)"
+        id="productos">
+        <h2 class="section-title"><span style="color: var(--verde-botella);">Nuestros <strong
+                    styl>Cocktails</strong></span>
+        </h2>
 
+        <div id="carouselContent" class="flex justify-start sm:justify-center">
 
-        <div id="carouselContent" class="flex">
             <div class="product-card-wrapper">
                 <div class="product-card shadow">
-                    <img src="https://placehold.co/300x400" alt="Mojito Classic" class="product-image">
+                    <img src="https://placehold.co/300x400" alt="Summer Wine" class="product-image">
                     <div class="product-details">
-                        <h3 class="product-name">Mojito Classic</h3>
-                        <p class="product-description">Ron blanco, menta, lima, soda</p>
+                        <h3 class="product-name">Summer Wine</h3>
+                        <p class="product-description">Vino Tinto Carmenere – Merlot, Naranjas Deshidratada, Ramas de
+                            Canela, Agave y Agua Gasificada</p>
                         <div class="product-footer">
-                            <span class="product-price">$8.990</span>
-                            <button class="buy-button">Conoce más</button>
+                            <!-- <button class="buy-button">Conoce más</button> -->
                         </div>
                     </div>
                 </div>
             </div>
             <div class="product-card-wrapper">
                 <div class="product-card shadow">
-                    <img src="https://placehold.co/300x400" alt="Margarita Sunset" class="product-image">
+                    <img src="https://placehold.co/300x400" alt="Sparkling Rose" class="product-image">
                     <div class="product-details">
-                        <h3 class="product-name">Margarita Sunset</h3>
-                        <p class="product-description">Tequila, triple sec, jugo de lima</p>
+                        <h3 class="product-name">Sparkling Rose</h3>
+                        <p class="product-description">Uva Chardonnay, Pinot Noir y Syrah, con toques de frutos rojos y
+                            pétalos de rosas</p>
                         <div class="product-footer">
-                            <span class="product-price">$9.500</span>
-                            <button class="buy-button">Conoce más</button>
+                            <!-- <button class="buy-button">Conoce más</button> -->
                         </div>
                     </div>
                 </div>
             </div>
             <div class="product-card-wrapper">
                 <div class="product-card shadow">
-                    <img src="https://placehold.co/300x400" alt="Negroni Ready" class="product-image">
+                    <img src="https://placehold.co/300x400" alt="Sparkling Brut" class="product-image">
                     <div class="product-details">
-                        <h3 class="product-name">Negroni Ready</h3>
-                        <p class="product-description">Gin, Campari, vermú rojo</p>
+                        <h3 class="product-name">Sparkling Brut</h3>
+                        <p class="product-description">Uva Chardonnay y Sauvignon Blanc, con toques de
+                            sutiles de frutos como Frutilla, Manzana y Pera</p>
                         <div class="product-footer">
-                            <span class="product-price">$10.990</span>
-                            <button class="buy-button">Conoce más</button>
+                            <!-- <button class="buy-button">Conoce más</button> -->
                         </div>
                     </div>
                 </div>
             </div>
             <div class="product-card-wrapper">
                 <div class="product-card shadow">
-                    <img src="https://placehold.co/300x400" alt="Old Fashioned" class="product-image">
+                    <img src="https://placehold.co/300x400" alt="Vodka Lima Limón Bitters" class="product-image">
                     <div class="product-details">
-                        <h3 class="product-name">Old Fashioned</h3>
-                        <p class="product-description">Whiskey, angostura, azúcar</p>
+                        <h3 class="product-name">Vodka Lima Limón Bitters</h3>
+                        <p class="product-description">Vodka, con toques sutiles de Limón y Limón de Pica, endulzado con
+                            Agave y Agua Gasificada</p>
                         <div class="product-footer">
-                            <span class="product-price">$11.500</span>
-                            <button class="buy-button">Conoce más</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card-wrapper">
-                <div class="product-card shadow">
-                    <img src="https://placehold.co/300x400" alt="Cosmopolitan" class="product-image">
-                    <div class="product-details">
-                        <h3 class="product-name">Cosmopolitan</h3>
-                        <p class="product-description">Vodka, triple sec, jugo de arándano, lima</p>
-                        <div class="product-footer">
-                            <span class="product-price">$9.990</span>
-                            <button class="buy-button">Conoce más</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card-wrapper">
-                <div class="product-card shadow">
-                    <img src="https://placehold.co/300x400" alt="Piña Colada" class="product-image">
-                    <div class="product-details">
-                        <h3 class="product-name">Piña Colada</h3>
-                        <p class="product-description">Ron blanco, crema de coco, jugo de piña</p>
-                        <div class="product-footer">
-                            <span class="product-price">$8.750</span>
-                            <button class="buy-button">Conoce más</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card-wrapper">
-                <div class="product-card shadow">
-                    <img src="https://placehold.co/300x400" alt="Daiquiri" class="product-image">
-                    <div class="product-details">
-                        <h3 class="product-name">Daiquiri</h3>
-                        <p class="product-description">Ron blanco, jugo de lima, azúcar</p>
-                        <div class="product-footer">
-                            <span class="product-price">$7.990</span>
-                            <button class="buy-button">Conoce más</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="product-card-wrapper">
-                <div class="product-card shadow">
-                    <img src="https://placehold.co/300x400" alt="Bloody Mary" class="product-image">
-                    <div class="product-details">
-                        <h3 class="product-name">Bloody Mary</h3>
-                        <p class="product-description">Vodka, jugo de tomate, salsa inglesa, especias</p>
-                        <div class="product-footer">
-                            <span class="product-price">$10.250</span>
-                            <button class="buy-button">Conoce más</button>
+                            <!-- <button class="buy-button">Conoce más</button> -->
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+
     </section>
 
     <!-- Footer -->
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-section">
-                <h4>My Cocktails Chile</h4>
-                <p>Av. Providencia 1234</p>
+                <h4>My Cocktail</h4>
+                <!-- <p>Av. Providencia 1234</p> -->
                 <p>Santiago, Chile</p>
             </div>
             <div class="footer-section">
                 <h4>Contacto</h4>
-                <p>Email: <a href="mailto:contacto@mycocktails.cl">contacto@mycocktails.cl</a></p>
-
-                <p>Teléfono: +56 2 2345 6789</p>
+                <p>Email: <a href="mailto:contacto@mycocktails.cl"
+                        style="color: var(--verde-claro);">contacto@mycocktail.cl</a></p>
+                <!-- <p>Teléfono: +56 2 2345 6789</p> -->
             </div>
             <div class="footer-section">
                 <h4>Redes Sociales</h4>
                 <div class="social-links">
-                    <a href="#">Instagram</a>
-                    <a href="#">TikTok</a>
-                    <a href="#">X</a>
+                    <a target="_blank" href="https://www.instagram.com/mycocktail.cl/">Instagram</a>
                 </div>
             </div>
         </div>
         <div class="footer-bottom">
-            © 2024 My Cocktails Chile. Todos los derechos reservados.
+            © 2025 My Cocktail. Todos los derechos reservados.
         </div>
     </footer>
 
