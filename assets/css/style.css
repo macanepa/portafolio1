@@ -845,7 +845,7 @@ body {
 
 @font-face {
     font-family: 'Din-Din';
-    src: url('assets/fonts/DIN/D-DIN.otf') format('opentype');
+    src: url('/assets/fonts/DIN/D-DIN.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -853,7 +853,7 @@ body {
 
 @font-face {
     font-family: 'Din-Din';
-    src: url('assets/fonts/DIN/D-DIN-Bold.otf') format('opentype');
+    src: url('/assets/fonts/DIN/D-DIN-Bold.otf') format('opentype');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -861,7 +861,7 @@ body {
 
 @font-face {
     font-family: 'Lato';
-    src: url('assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
+    src: url('/assets/fonts/Lato/Lato-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
     font-display: swap;
@@ -869,7 +869,7 @@ body {
 
 @font-face {
     font-family: 'Lato';
-    src: url('assets/fonts/Lato/Lato-Bold.ttf') format('truetype');
+    src: url('/assets/fonts/Lato/Lato-Bold.ttf') format('truetype');
     font-weight: bold;
     font-style: normal;
     font-display: swap;
@@ -877,7 +877,7 @@ body {
 
 @font-face {
     font-family: 'Lato';
-    src: url('assets/fonts/Lato/Lato-Light.ttf') format('truetype');
+    src: url('/assets/fonts/Lato/Lato-Light.ttf') format('truetype');
     font-weight: 300;
     font-style: normal;
     font-display: swap;
